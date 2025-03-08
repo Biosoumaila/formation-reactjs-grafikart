@@ -1,22 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const voitures = [
-    'sonata',
-    'kia',
-    'prado',
-    'lamborghini'
-  ]
+export function Counter() {
+    const [count, setCount] = useState(0)
+    const increment = () => setCount(count + 1)
 
-  return (
-    <>
-      {voitures.map(voiture => (<li key={voiture}>{voiture}</li>))}
-
-    </>
-  )
+    return <div>
+        <p>Compteur : {count}</p>
+        <button onClick={increment}>Incrementer</button>
+    </div>
 }
-
-export default App
