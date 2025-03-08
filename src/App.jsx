@@ -2,24 +2,22 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-    const [value, setValue] = useState(undefined)
-    const handleChange = (e) => {
-        setValue(e.target.value)
-    }
-
-    const [checked, setChecked] = useState(true);
-
-    const toggleCheck = () => {
-        setChecked(!checked)
-    };
-
+    const [isTermAccepted, setIsTermAccepted] = useState()
 
     return <form>
-        <textarea value={value} onChange={handleChange} />
-        <input type="checkbox" checked={checked} onChange={toggleCheck} />
-
-        <button disabled={!checked}>Envoyer</button>
+        <CGUCheckbox checked={isTermAccepted} onCheck={setIsTermAccepted} />
+        <button disabled={!isTermAccepted}>Envoyer le formulaire</button>
     </form>
+}
 
+function CGUCheckbox({ checked }) {
+    return <div>
+        <label>
+            <input type="checkbox"
+                onChange={(e) => onCheck(e.target.checked)}
+                checked={checked} />
+            Accepter les conditions d'utilisation
+        </label>
+    </div>
 }
 export default App
