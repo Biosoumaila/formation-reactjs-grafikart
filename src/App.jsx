@@ -7,10 +7,18 @@ function App() {
         setValue(e.target.value)
     }
 
+    const [checked, setChecked] = useState(true);
+
+    const toggleCheck = () => {
+        setChecked(!checked)
+    };
+
+
     return <form>
-        <input type="text" name='firstname' value={value}
-            onChange={handleChange} />
-        <button>Envoyer</button>
+        <textarea value={value} onChange={handleChange} />
+        <input type="checkbox" checked={checked} onChange={toggleCheck} />
+
+        <button disabled={!checked}>Envoyer</button>
     </form>
 
 }
