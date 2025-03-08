@@ -3,7 +3,7 @@ import { useState } from 'react'
 //import viteLogo from '/vite.svg'
 import './App.css'
 
-export function Counter() {
+function App() {
     const [count, setCount] = useState(0)
     const increment = () => setCount(count + 1)
 
@@ -12,3 +12,4 @@ export function Counter() {
         <button onClick={increment}>Incrementer</button>
     </div>
 }
+export default App
