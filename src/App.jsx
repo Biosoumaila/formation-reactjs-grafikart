@@ -1,15 +1,17 @@
 import { useState } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-    const [count, setCount] = useState(0)
-    const increment = () => setCount(count + 1)
+    const [value, setValue] = useState(undefined)
+    const handleChange = (e) => {
+        setValue(e.target.value)
+    }
 
-    return <div>
-        <p>Compteur : {count}</p>
-        <button onClick={increment}>Incrementer</button>
-    </div>
+    return <form>
+        <input type="text" name='firstname' value={value}
+            onChange={handleChange} />
+        <button>Envoyer</button>
+    </form>
+
 }
 export default App
